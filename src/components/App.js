@@ -1,11 +1,19 @@
-import React, {Component, useState} from "react";
-import '../styles/App.css';
+import React, { useState } from 'react';
+import CalendarHeader from './CalendarHeader';
+import Controls from './Controls';
+import CalendarTable from './CalendarTable';
 
-const App = () => {
+function App() {
+  const [month, setMonth] = useState(new Date().getMonth());
+  const [year, setYear] = useState(new Date().getFullYear());
+
   return (
-    <div id="main"></div>
-  )
+    <div>
+      <CalendarHeader />
+      <Controls month={month} setMonth={setMonth} year={year} setYear={setYear} />
+      <CalendarTable month={month} year={year} />
+    </div>
+  );
 }
-
 
 export default App;
